@@ -1,4 +1,4 @@
-# Customer Success — Segmentação de Clientes (K-Means)
+# Customer Success: Segmentação de Clientes (K-Means)
 
 [![Dashboard — Customer Success](reports/assets/dashboard_thumbnail.svg)](https://flaviohenriquehb777.github.io/Customer_Sucess_Clustering/reports/dashboard_customer_success.html)
 
@@ -101,6 +101,7 @@ Arquivos:
 - matplotlib, seaborn
 - openpyxl/xlsxwriter (export)
 - shap (explicabilidade)
+- Dashboard (front-end): HTML/CSS/JavaScript + Chart.js
 
 ## Instalação e Uso
 

@@ -23,7 +23,7 @@
   <circle cx="174" cy="143" r="10" fill="#639922"/>
 
   <text x="220" y="149" fill="#E8E9F0" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">
-    Customer Success — Dashboard de Segmentação (K-Means)
+    Customer Success: Segmentação de Clientes (K-Means)
   </text>
   <text x="220" y="170" fill="#8B8FA8" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif" font-size="14" font-weight="500">
     Visão Geral • Metodologia • Clusters • Risco • Inferência
