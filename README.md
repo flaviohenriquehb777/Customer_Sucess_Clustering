@@ -1,9 +1,12 @@
 # Customer Success — Segmentação de Clientes (K-Means)
 
+[![Dashboard — Customer Success](reports/assets/dashboard_thumbnail.svg)](https://flaviohenriquehb777.github.io/Customer_Sucess_Clustering/reports/dashboard_customer_success.html)
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Flávio%20Henrique%20Barbosa-0A66C2?logo=linkedin&logoColor=white)](https://linkedin.com/in/flávio-henrique-barbosa-38465938)
 [![Email](https://img.shields.io/badge/Email-flaviohenriquehb777%40outlook.com-0078D4?logo=microsoft-outlook&logoColor=white)](mailto:flaviohenriquehb777@outlook.com)
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit--Learn](https://img.shields.io/badge/scikit--learn-KMeans-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Dashboard-222?logo=github&logoColor=white)](https://flaviohenriquehb777.github.io/Customer_Sucess_Clustering/reports/dashboard_customer_success.html)
 
 ## Sumário
 - [Visão Geral do Modelo](#visão-geral-do-modelo)
@@ -12,6 +15,7 @@
 - [Base de Dados](#base-de-dados)
 - [Metodologia de Análise](#metodologia-de-análise)
 - [Resultados Chave e Apresentação](#resultados-chave-e-apresentação)
+- [Dashboard (HTML)](#dashboard-html)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Instalação e Uso](#instalação-e-uso)
 - [Publicação no GitHub Pages](#publicação-no-github-pages)
@@ -77,6 +81,19 @@ Imagens principais:
 - `reports/assets/k_stability.png` (estabilidade ARI/NMI por K)
 - `reports/assets/pca_clusters.png`, `reports/assets/cluster_heatmap.png`, `reports/assets/radar_clusters.png`
 
+## Dashboard (HTML)
+
+O projeto inclui um dashboard interativo em HTML (autocontido) com:
+- Visão geral da distribuição de clusters, ranking valor/risco e tabela resumo
+- Metodologia (linha do tempo, critérios de K, métricas ilustrativas)
+- Drill-down por cluster (perfil, radar, barras, mapa risco × engajamento)
+- Análise do problema “recorrentes que nunca acessaram”
+- Inferência em novos clientes com busca e filtros por cluster
+
+Arquivos:
+- Dashboard: `reports/dashboard_customer_success.html`
+- Miniatura (README): `reports/assets/dashboard_thumbnail.svg`
+
 ## Tecnologias Utilizadas
 
 - Python 3
@@ -110,9 +127,17 @@ Saídas:
 
 ## Publicação no GitHub Pages
 
-Uma forma simples de publicar:
-- Copie `reports/final_report.md` e a pasta `reports/assets/` para um diretório `docs/`.
-- No GitHub: Settings → Pages → Source: `docs/` (branch principal).
+Passo a passo recomendado para publicar o dashboard:
+1) No GitHub, abra o repositório e vá em **Settings → Pages**.
+2) Em **Build and deployment** selecione:
+   - **Source:** Deploy from a branch
+   - **Branch:** `main`
+   - **Folder:** `/ (root)`
+3) Clique em **Save** e aguarde o GitHub habilitar o Pages.
+4) O dashboard ficará disponível em:
+   - `https://flaviohenriquehb777.github.io/Customer_Sucess_Clustering/reports/dashboard_customer_success.html`
+
+Sugestão (opcional): criar um `docs/index.html` apontando para o dashboard para ter uma URL mais curta.
 
 ## Licença
 
