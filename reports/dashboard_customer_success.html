@@ -1391,7 +1391,7 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
 
         makeLegend('legendClusters', ordered.map(c => ({
           color: CLUSTER_COLORS[c.tag].main,
-          label: `${EMOJI_BY_TAG[c.tag]} ${c.nome} • ${fmtPct(c.pct)}`
+          label: `${c.nome} • ${fmtPct(c.pct)}`
         })));
       }
 
@@ -1448,7 +1448,7 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
           const col = CLUSTER_COLORS[tag];
           return `
             <tr data-cluster="${c.id}">
-              <td><span class="cluster-chip"><span class="dot" style="background:${col.main}"></span>${EMOJI_BY_TAG[tag]} ${c.nome} <span class="muted">— ${c.id}</span></span></td>
+              <td><span class="cluster-chip">${EMOJI_BY_TAG[tag]} ${c.nome} <span class="muted">— ${c.id}</span></span></td>
               <td>${fmtInt.format(c.clientes)}</td>
               <td>${fmtPct(c.pct)}</td>
               <td>${c.logAcessos.toFixed(3).replace('.', ',')}</td>
@@ -1964,7 +1964,7 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
         });
         charts['chartEpicentro'] = ch;
         makeLegend('legendEpicentro', [
-          { color: CLUSTER_COLORS.zumbis.main, label: `🔴 Zumbis • ${fmtPct2(z.pctTotal)}` },
+          { color: CLUSTER_COLORS.zumbis.main, label: `Zumbis • ${fmtPct2(z.pctTotal)}` },
           { color: '#2E3350', label: `Outros • ${fmtPct2(others)}` }
         ]);
       }
@@ -2098,7 +2098,7 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
         charts['donutNovos'] = ch;
         makeLegend('legendNovos', tags.map(t => ({
           color: CLUSTER_COLORS[t].main,
-          label: `${EMOJI_BY_TAG[t]} ${getClusterByTag(t).nome} • ${fmtPct(DATA.novosClientes[t].pct)}`
+          label: `${getClusterByTag(t).nome} • ${fmtPct(DATA.novosClientes[t].pct)}`
         })));
         document.getElementById('novosHint').textContent = DATA.novosClientes.zumbis.count === 0 ? 'Nenhum zumbi identificado' : 'Há zumbis nos novos clientes';
       }
