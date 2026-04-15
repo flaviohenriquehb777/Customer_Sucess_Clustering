@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranking de Clusters</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f8f7f2; padding: 20px; }
+  .wrapper { max-width: 720px; margin: 0 auto; }
+  .header { display: flex; justify-content: space-between; align-items: baseline;
+             margin-bottom: 16px; padding-bottom: 10px; border-bottom: 0.5px solid #e2e0d8; }
+  .header-title { font-size: 13px; font-weight: 500; color: #73726c;
+                   letter-spacing: 0.05em; text-transform: uppercase; }
+  .header-total { font-size: 12px; color: #888780; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <span class="header-title">Ranking por score (valor/risco)</span>
+    <span class="header-total">45,027 clientes totais</span>
+  </div>
+  
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #3B6D11;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#EAF3DE;color:#27500A;">1</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Champions
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 4</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">4.175 clientes · 9.3% · 37.6% recorrentes</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:98%;height:100%;border-radius:3px;background:#639922;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">+0.902</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#EAF3DE;color:#27500A;">+0.902</div>
+  </div>
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #BA7517;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#FAEEDA;color:#633806;">2</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Potenciais
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 0</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">9.709 clientes · 21.6% · 100.0% recorrentes · 100% cartão</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:69%;height:100%;border-radius:3px;background:#EF9F27;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">+0.366</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#FAEEDA;color:#633806;">+0.366</div>
+  </div>
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #534AB7;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#EEEDFE;color:#3C3489;">3</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Novos
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 5</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">4.041 clientes · 9.0% · 35.4% recorrentes · 90.5% pix</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:49%;height:100%;border-radius:3px;background:#7F77DD;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">-0.011</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#EEEDFE;color:#3C3489;">-0.011</div>
+  </div>
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #D85A30;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#FAECE7;color:#712B13;">4</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Avulsos Engajados
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 1</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">16.126 clientes · 35.8% · 100% cartão</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:42%;height:100%;border-radius:3px;background:#D85A30;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">-0.138</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#FAECE7;color:#712B13;">-0.138</div>
+  </div>
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #5F5E5A;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#D3D1C7;color:#444441;">5</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Churn Iminente
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 3</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">5.475 clientes · 12.2% · 84.2% recorrentes · 100% cartão · 201 dias sem acessar</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:41%;height:100%;border-radius:3px;background:#888780;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">-0.165</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#D3D1C7;color:#444441;">-0.165</div>
+  </div>
+  <div style="background:#ffffff;border:0.5px solid #e2e0d8;border-radius:12px;
+              padding:14px 16px;margin-bottom:10px;display:grid;
+              grid-template-columns:36px 1fr auto;align-items:center;gap:12px;
+              border-left:3px solid #A32D2D;">
+    <div style="width:30px;height:30px;border-radius:50%;display:flex;
+                align-items:center;justify-content:center;font-weight:500;
+                font-size:13px;flex-shrink:0;
+                background:#FCEBEB;color:#791F1F;">6</div>
+    <div>
+      <div style="font-weight:500;font-size:14px;color:#1a1a18;">
+        Zumbis
+        <span style="color:#73726c;font-weight:400;font-size:12px;">— Cluster 2</span>
+      </div>
+      <div style="font-size:12px;color:#73726c;margin-top:2px;">5.501 clientes · 12.2% · 52.2% recorrentes · 100% nunca acessou</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:7px;">
+        <div style="flex:1;height:5px;background:#f1efe8;border-radius:3px;overflow:hidden;">
+          <div style="width:10%;height:100%;border-radius:3px;background:#E24B4A;"></div>
+        </div>
+        <span style="font-size:11px;color:#73726c;min-width:42px;text-align:right;">-0.754</span>
+      </div>
+    </div>
+    <div style="font-size:12px;font-weight:500;padding:4px 10px;border-radius:20px;
+                white-space:nowrap;background:#FCEBEB;color:#791F1F;">-0.754</div>
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:0.5px solid #e2e0d8;"><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#639922;display:inline-block;"></span>Verde — excelência</span><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#EF9F27;display:inline-block;"></span>Âmbar — potencial</span><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#7F77DD;display:inline-block;"></span>Roxo — neutro/incipiente</span><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#D85A30;display:inline-block;"></span>Coral — atenção moderada</span><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#888780;display:inline-block;"></span>Cinza — risco crescente</span><span style="font-size:11px;display:flex;align-items:center;gap:5px;color:#73726c;"><span style="width:10px;height:10px;border-radius:50%;background:#E24B4A;display:inline-block;"></span>Vermelho — alerta máximo</span></div>
+</div>
+</body>
+</html>

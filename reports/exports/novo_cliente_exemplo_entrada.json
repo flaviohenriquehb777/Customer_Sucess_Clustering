@@ -1,0 +1,18 @@
+{
+  "log_acessos": 0.0,
+  "dias_sem_acessar": 999.0,
+  "recorrencia": 0.0,
+  "recorrente": 1.0,
+  "parcelado": 1.0,
+  "tipo_pagamento": 1,
+  "nunca_acessou": 1.0,
+  "n_transacoes_cliente": 1.0,
+  "recencia_compra_dias": 5.0,
+  "freq_compra_mensal": 1.0,
+  "ativo": "sim",
+  "renovacao": "nao",
+  "faixa_inatividade": "181_plus",
+  "metodo_pagamento": "cartao",
+  "parcelas_nao_recorrente_bin": null,
+  "status": "COMPLETE"
+}
