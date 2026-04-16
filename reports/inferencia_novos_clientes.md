@@ -4,7 +4,7 @@ Este material complementa a etapa de “Exportação (etapa esperada no case)”
 
 ## Inputs
 - Base: `data/new/Customer Sucess_novos_clientes.xlsx`
-- Pipeline treinado: `reports/kmeans_pipeline.joblib` (cópia compatível) e `reports/models/kmeans_pipeline.joblib` (canônico)
+- Pipeline treinado: `reports/models/kmeans_pipeline.joblib`
 
 ## Notebook
 - Execute do zero: `notebooks/08_inferencia_novos_clientes.ipynb`
@@ -20,4 +20,3 @@ Este material complementa a etapa de “Exportação (etapa esperada no case)”
 - cluster 2 → 🔴 Zumbis
 - cluster 3 → ⚪ Churn Iminente
 - cluster 5 → 🟣 Novos
-

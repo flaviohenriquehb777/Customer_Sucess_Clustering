@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -124,7 +125,16 @@ def save_pipeline(pipe: Pipeline, path: str) -> None:
 
 
 def load_pipeline(path: str) -> Pipeline:
-    return load(path)
+    p = Path(path)
+    if p.exists():
+        return load(p)
+
+    if p.name == "kmeans_pipeline.joblib":
+        alt = p.parent / "models" / p.name
+        if alt.exists():
+            return load(alt)
+
+    raise FileNotFoundError(f"Pipeline não encontrado em: {p}")
 
 
 def get_feature_names(pipe: Pipeline) -> np.ndarray:

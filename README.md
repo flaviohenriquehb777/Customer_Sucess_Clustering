@@ -24,7 +24,7 @@
 
 ## Visão Geral do Modelo
 
-Este projeto segmenta clientes da Insight Academy usando **K-Means** com foco em **ações de negócio** (retenção, engajamento e receita). A modelagem é feita em nível de **cliente** (visão cliente-atual), consolidando a base transacional e preservando histórico via features agregadas.
+Este modelo segmenta clientes da Insight Academy usando **K-Means** com foco em **ações de negócio** (retenção, engajamento e receita). A modelagem é feita em nível de **cliente** (visão cliente-atual), consolidando a base transacional e preservando histórico via features agregadas.
 
 Entregáveis principais:
 - Relatório executivo completo: `reports/final_report.md`
@@ -48,7 +48,7 @@ Responder às perguntas do case:
 - `src/features.py`: especificação e seleção de features de modelagem
 - `src/modeling.py`: pipelines (pré-processamento + scaler + KMeans) e métricas
 - `src/business_refresh.py`: geração de artefatos (K orientado ao negócio) e relatório final
-- `notebooks/`: notebooks sequenciais do projeto (EDA → features → seleção de K → perfis → SHAP)
+- `notebooks/`: notebooks sequenciais do modelo (EDA → features → seleção de K → perfis → SHAP)
 
 ## Base de Dados
 
@@ -83,7 +83,7 @@ Imagens principais:
 
 ## Dashboard (HTML)
 
-O projeto inclui um dashboard interativo em HTML (autocontido) com:
+O modelo inclui um dashboard interativo em HTML (autocontido) com:
 - Visão geral da distribuição de clusters, ranking valor/risco e tabela resumo
 - Metodologia (linha do tempo, critérios de K, métricas ilustrativas)
 - Drill-down por cluster (perfil, radar, barras, mapa risco × engajamento)
@@ -91,7 +91,8 @@ O projeto inclui um dashboard interativo em HTML (autocontido) com:
 - Inferência em novos clientes com busca e filtros por cluster
 
 Arquivos:
-- Dashboard: `reports/dashboard_customer_success.html`
+- Fonte do dashboard: `dashboard/dashboard_customer_success.html`
+- Página para publicação (GitHub Pages): `reports/dashboard_customer_success.html`
 - Miniatura (README): `reports/assets/dashboard_thumbnail.svg`
 
 ## Tecnologias Utilizadas
