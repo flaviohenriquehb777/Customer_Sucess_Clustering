@@ -209,6 +209,9 @@
         grid-template-columns: repeat(4, 1fr);
         gap:12px;
       }
+      .kpis.kpis-5{
+        grid-template-columns: repeat(5, 1fr);
+      }
       .kpi{
         background:#171A24;
         border:1px solid var(--border);
@@ -247,6 +250,22 @@
       }
       .kpi .value.value-split .value-main{
         font-size:28px;
+        font-weight:700;
+        line-height:1;
+      }
+      .kpi .value.value-stack{
+        display:flex;
+        flex-direction:column;
+        gap:6px;
+        line-height:1.05;
+      }
+      .kpi .value.value-stack .value-top{
+        font-size:16px;
+        font-weight:700;
+        line-height:1.1;
+      }
+      .kpi .value.value-stack .value-bottom{
+        font-size:22px;
         font-weight:700;
         line-height:1;
       }
@@ -715,6 +734,7 @@
 
       @media (max-width:1200px){
         .kpis{grid-template-columns: repeat(2, 1fr)}
+        .kpis.kpis-5{grid-template-columns: repeat(3, 1fr)}
         .criteria-grid{grid-template-columns: repeat(2, 1fr)}
         .pills{grid-template-columns: repeat(2, 1fr)}
         .action-cards{grid-template-columns: 1fr}
@@ -736,6 +756,7 @@
           transform:translateX(-110%);
           transition:transform 180ms ease;
         }
+        .kpis.kpis-5{grid-template-columns: repeat(2, 1fr)}
         body[data-sidebar-open="1"] .sidebar{transform:translateX(0)}
         .main{margin-left:0; width:100%}
         .topbar-inner{padding:14px 16px}
@@ -788,6 +809,7 @@
               <p>K=6 • Storytelling executivo: problema → metodologia → clusters → ações → inferência</p>
             </div>
             <div class="badge" id="topbarBadge">Base atual: 45.027 clientes</div>
+            <div class="badge" id="topbarBadgeNovos" style="display:none;"></div>
           </div>
         </header>
 
@@ -989,7 +1011,7 @@
           </section>
 
           <section class="tab" id="aba-novos" data-tab="novos">
-            <div class="kpis" id="kpisNovos"></div>
+            <div class="kpis kpis-5" id="kpisNovos"></div>
 
             <div class="row" style="margin-top:16px;">
               <div class="col chart-card">
@@ -1253,6 +1275,16 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
         DASHBOARD_STATE.tab = tab;
         document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
         document.querySelectorAll('.tab').forEach(sec => sec.classList.toggle('active', sec.dataset.tab === tab));
+
+        const novosBadge = document.getElementById('topbarBadgeNovos');
+        if (novosBadge) {
+          if (tab === 'novos') {
+            novosBadge.style.display = 'inline-flex';
+            novosBadge.textContent = `Novos classificados: ${fmtInt.format(DATA.baseNovos)} clientes`;
+          } else {
+            novosBadge.style.display = 'none';
+          }
+        }
 
         if (tab === 'clusters') {
           setCluster(DASHBOARD_STATE.clusterSelecionado, false);
@@ -2050,18 +2082,25 @@ U2FuZHJhIExhbmEiLCAiVGhheW7DoSBGaW9yYXZhbnRlIiwgIlbDrXZpYW4gU2F5dXJpIl19
 
       function renderKPIsNovos(){
         const el = document.getElementById('kpisNovos');
-        const champions = DATA.novosClientes.champions;
-        const risk = DATA.novosClientes.churn.count + DATA.novosClientes.novos.count;
-        const riskPct = (risk / DATA.baseNovos) * 100;
-        const items = [
-          { label: 'Total classificados', value: fmtInt.format(DATA.baseNovos), color: '#378ADD' },
-          { label: 'Maior grupo', value: `Champions — ${fmtInt.format(champions.count)} (${fmtPct(champions.pct)})`, color: CLUSTER_COLORS.champions.main },
-          { label: 'Nenhum Zumbi', value: `${fmtInt.format(DATA.novosClientes.zumbis.count)} clientes (${fmtPct(DATA.novosClientes.zumbis.pct)})`, color: '#639922' },
-          { label: 'Em risco (Churn + Novos)', value: `${fmtInt.format(risk)} clientes (${fmtPct(riskPct)})`, color: CLUSTER_COLORS.churn.main }
+        const ordered = [
+          { key:'champions', title:'Champions', rank:'Maior grupo' },
+          { key:'novos', title:'Novos', rank:'Segundo maior grupo' },
+          { key:'avulsos', title:'Avulsos', rank:'Terceiro maior grupo' },
+          { key:'potenciais', title:'Potenciais', rank:'Quarto maior grupo' },
+          { key:'churn', title:'Churn', rank:'Quinto maior grupo' }
         ];
+        const items = ordered.map(x => {
+          const d = DATA.novosClientes[x.key];
+          return {
+            label: x.rank,
+            valueHtml: `<div class="value-top">${x.title} (${fmtPct(d.pct)})</div><div class="value-bottom">${fmtInt.format(d.count)} clientes</div>`,
+            valueClass: 'value-stack',
+            color: CLUSTER_COLORS[x.key].main
+          };
+        });
         el.innerHTML = items.map(x => `
           <div class="kpi small" style="--accent:${x.color}">
-            <div class="value">${x.value}</div>
+            <div class="value ${x.valueClass || ''}">${x.valueHtml || x.value}</div>
             <div class="label">${x.label}</div>
           </div>
         `).join('');
